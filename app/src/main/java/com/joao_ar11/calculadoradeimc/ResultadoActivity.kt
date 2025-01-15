@@ -18,6 +18,30 @@ class ResultadoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_resultado)
         inicializarComponentesInterface()
 
+        val bundle = intent.extras
+
+        if (bundle == null) {
+            finish()
+            return
+        }
+
+        val peso = bundle.getDouble("peso")
+        val altura = bundle.getDouble("altura")
+
+        textPeso.text = "Peso Informado: $peso kg"
+        textAltura.text = "Altura Informada: $altura m"
+
+        val imc = peso / (altura * altura)
+
+        val resultado = when(imc) {
+            in 0.0..18.4 -> "Baixo"
+            in 18.5..24.9 -> "Normal"
+            in 25.0..29.9 -> "Sobrepeso"
+            else -> "Obeso"
+        }
+
+        textResultado.text = resultado
+
     }
 
     private fun inicializarComponentesInterface() {
