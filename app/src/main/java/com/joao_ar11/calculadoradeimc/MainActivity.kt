@@ -21,6 +21,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         inicializarComponentesInterface()
+
+        buttonCalcular.setOnClickListener {
+
+            val peso = editPeso.text.toString()
+            val altura = editAltura.text.toString()
+            val intent: Intent = Intent(this, ResultadoActivity::class.java)
+
+            intent.putExtra("peso", peso.toDouble())
+            intent.putExtra("altura", peso.toDouble())
+
+            startActivity(intent)
+
+        }
     }
 
     private fun inicializarComponentesInterface() {
