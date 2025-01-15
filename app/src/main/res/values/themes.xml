@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.CalculadoraDeIMC" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.CalculadoraDeIMC" parent="Theme.MaterialComponents.DayNight">
         <item name="colorPrimary">@color/primaria</item>
         <item name="colorPrimaryVariant">@color/primaria_variacao</item>
         <item name="android:windowBackground">@color/fundo</item>

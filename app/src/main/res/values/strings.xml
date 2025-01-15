@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Calculadora de IMC</string>
+    <string name="ajuda">Digite o \".\" para casas decimais</string>
 </resources>
