@@ -23,17 +23,37 @@ class MainActivity : AppCompatActivity() {
         inicializarComponentesInterface()
 
         buttonCalcular.setOnClickListener {
+            val resultadoValidacao = validarCampos()
 
-            val peso = editPeso.text.toString()
-            val altura = editAltura.text.toString()
-            val intent: Intent = Intent(this, ResultadoActivity::class.java)
+            if (resultadoValidacao) {
+                val peso = editPeso.text.toString()
+                val altura = editAltura.text.toString()
+                val intent: Intent = Intent(this, ResultadoActivity::class.java)
 
-            intent.putExtra("peso", peso.toDouble())
-            intent.putExtra("altura", peso.toDouble())
+                intent.putExtra("peso", peso.toDouble())
+                intent.putExtra("altura", peso.toDouble())
 
-            startActivity(intent)
-
+                startActivity(intent)
+            }
         }
+    }
+
+    private fun validarCampos(): Boolean {
+        textInputPeso.error = ""
+        textInputAltura.error = ""
+
+        val peso = editPeso.text.toString()
+        val altura = editAltura.text.toString()
+
+        if (peso.isEmpty()) {
+            textInputPeso.error = "Digite o peso"
+            return false
+        } else if (altura.isEmpty()) {
+            textInputAltura.error = "Digite a altura"
+            return false
+        }
+
+        return true
     }
 
     private fun inicializarComponentesInterface() {
